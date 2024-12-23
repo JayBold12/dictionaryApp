@@ -11,6 +11,10 @@ def get_word_definition(term: str):
         for meaning in meanings:
             part_of_speech = meaning["partOfSpeech"]
             print(part_of_speech)
+
+            definition = meaning["definitions"][0]["definition"]
+            print(definition)
+            print("\n")
     else:
         print(f"Problem with this request: ERROR CODE {response.status_code}")
         error_data = response.json()
@@ -35,4 +39,4 @@ def generate_a_word():
 word = generate_a_word()
 print(word + "\n")
 #word = input("Enter a word you would like to look up: ")
-get_word_definition('concealing')
+get_word_definition(word)
